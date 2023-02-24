@@ -5,8 +5,11 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
 	for (int i = 0; i < MATERIA_SOURCE_SIZE; i++)
 	{
-		if (this->materiaSource_[i] != NULL)
+		if (this->materiaSource_[i] == NULL)
+		{
 			this->materiaSource_[i] = materia;
+			return ;
+		}
 	}
 }
 
@@ -14,9 +17,10 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < MATERIA_SOURCE_SIZE; i++)
 	{
-		if (this->materiaSource_[i]->getType() == type)
+		if (this->materiaSource_[i] != NULL && this->materiaSource_[i]->getType() == type)
 			return (this->materiaSource_[i]->clone());
 	}
+	return (NULL);
 }
 
 
@@ -28,6 +32,7 @@ void	MateriaSource::setNullSources(void)
 	}
 }
 
+// deep copy 필요한가?
 void	MateriaSource::shallowCopySources(const MateriaSource& source)
 {
 	for (int i = 0; i < MATERIA_SOURCE_SIZE; i++)
@@ -46,6 +51,7 @@ MateriaSource::MateriaSource()
 
 MateriaSource::~MateriaSource()
 {
+	// 동적 할당된 source들 해제 필요
 }
 
 MateriaSource::MateriaSource(const MateriaSource& source)

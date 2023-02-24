@@ -1,6 +1,7 @@
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include "Character.hpp"
 
 #include <iostream>
 #include <string>
@@ -38,5 +39,5 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "* BASIC MATERIA DOES NOTHING !! *" << std::endl;
+	std::cout << "* BASIC MATERIA DOES NOTHING TO " << target.getName() << "!!! *" << std::endl;
 }

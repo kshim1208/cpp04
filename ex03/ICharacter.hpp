@@ -5,6 +5,8 @@
 
 # include <string>
 
+class AMateria;
+
 class ICharacter
 {
 	public:

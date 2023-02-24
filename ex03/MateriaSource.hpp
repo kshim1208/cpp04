@@ -5,9 +5,9 @@
 
 # include "IMateriaSource.hpp"
 
-# define MATERIA_SOURCE_SIZE 4
-
 # include <string>
+
+# define MATERIA_SOURCE_SIZE 4
 
 class MateriaSource : public IMateriaSource
 {

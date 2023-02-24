@@ -39,6 +39,11 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
+	if (this->inventory_[idx] == NULL)
+	{
+		std::cout << "NO MATERIA IN THIS INVENTORY SLOT!!!" << std::endl; 
+		return ;
+	}
 	this->inventory_[idx]->use(target);
 
 	delete this->inventory_[idx];
