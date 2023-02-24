@@ -1,10 +1,10 @@
-NAME = Interface_&_recap
+NAME = Interface_and_recap
 CPPC = c++
 CFLAGS = -Wall -Werror -Wextra
 RM = rm
 RMFLAGS = -f
 
-SRCS = main.cpp
+SRCS = main.cpp AMateria.cpp Charcater.cpp Cure.cpp Ice.cpp LList.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

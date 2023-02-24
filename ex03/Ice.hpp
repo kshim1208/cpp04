@@ -5,16 +5,17 @@
 
 class Ice : public AMateria
 {
-	private:
-
 	public:
+		void use(ICharacter& target);
+		AMateria*	clone() const;
+
 		Ice();
 		~Ice();
 		Ice(const Ice& source);
 		Ice& operator=(const Ice& source);
-		
-		void use(ICharacter& target);
-		AMateria*	clone() const;
+
+	private:
+
 };
 
 #endif

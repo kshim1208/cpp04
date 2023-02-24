@@ -5,16 +5,18 @@
 
 class Cure : public AMateria
 {
-	private:
-	
 	public:
+		void use(ICharacter& target);
+		AMateria*	clone() const;
+		// Cure*	clone() const;
+	
 		Cure();
 		~Cure();
 		Cure(const Cure& source);
 		Cure& operator=(const Cure& source);
 
-		void use(ICharacter& target);
-		AMateria*	clone() const;
+	private:
+	
 };
 
 #endif

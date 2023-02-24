@@ -34,7 +34,16 @@ void Cure::use(ICharacter& target)
 
 AMateria*	Cure::clone() const
 {
-	AMateria*	tmp = new Cure();
+	AMateria*	tmp = new Cure(); // 업 캐스팅으로 반환? 
+									// 혹시 순수 가상 함수 구현할 때 타입을 바꿀  수  있나?
 
 	return (tmp);
 }
+
+// Cure*	Cure::clone() const
+// {
+// 	Cure*	tmp = new Cure(); // 업 캐스팅으로 반환? 
+// 									// 혹시 순수 가상 함수 구현할 때 타입을 바꿀  수  있나?
+
+// 	return (tmp);
+// }
