@@ -24,19 +24,19 @@ int main()
 	delete j;
 	delete meta;
 	
-	const WrongAnimal* meta = new WrongAnimal();
-	const Animal* j = new Dog();
-	const WrongAnimal* i = new WrongCat();
+	const WrongAnimal* Wmeta = new WrongAnimal();
+	j = new Dog();
+	const WrongAnimal* Wcat = new WrongCat();
 
 	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
+	std::cout << Wcat->getType() << " " << std::endl;
+	Wcat->makeSound();
 	j->makeSound();
-	meta->makeSound();
+	Wmeta->makeSound();
 
-	delete i;
+	delete Wcat;
 	delete j;
-	delete meta;
+	delete Wmeta;
 	
 	return 0;
 }

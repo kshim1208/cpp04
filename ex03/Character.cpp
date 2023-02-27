@@ -20,20 +20,37 @@ void Character::equip(AMateria* m)
 	}
 	for (int i = 0; i < INVENTORY_SIZE; i++)
 	{
-		if (this->inventory_[i] == NULL)
+		if (this->inventory_[i] == m)
 		{
-			this->inventory_[i] = m;
+			std::cout << this->getName() << " ALLREADY HAS IT !!!" << std::endl;
 			return ;
 		}
 	}
+	for (int i = 0; i < INVENTORY_SIZE; i++)
+	{
+		if (this->inventory_[i] == NULL)
+		{
+			this->inventory_[i] = m;
+			std::cout << this->getName() << " puts "<< m->getType() << " to inventory index : " << i << std::endl;
+			return ;
+		}
+	}
+	std::cout << "NOT ENOUGH INVENTORY FOR THIS MATERIA!!" << std::endl;
+	std::cout << this->getName() << " puts " << m->getType() << " on the floor " << std::endl;
 	this->floor_->listAddFront(m);
 }
 
 void Character::unequip(int idx)
 {
-	AMateria	*unequiped = this->inventory_[idx];
+	AMateria	*unequipped = this->inventory_[idx];
 
-	this->floor_->listAddFront(unequiped);
+	if (unequipped == NULL)
+	{
+		std::cout << "THIS INVENTORY SLOT IS EMPTY !!!" << std::endl;
+		return ;
+	}
+	this->floor_->listAddFront(unequipped);
+	std::cout << "saving unequipped materia" << std::endl;
 	this->inventory_[idx] = NULL;
 }
 
@@ -50,7 +67,7 @@ void Character::use(int idx, ICharacter& target)
 	this->inventory_[idx] = NULL;
 }
 
-void Character::setFloor(LList* floor)
+void Character::setFloor(LListAMateria* floor)
 {
 	if (this->floor_ == floor)
 		return ;
@@ -61,10 +78,18 @@ void Character::setFloor(LList* floor)
 	this->floor_ = floor;
 }
 
+Character* Character::clone()
+{
+	Character* tmp = new Character(*this);
+	return (tmp);
+}
+
+
 Character::Character()
 {
 	this->name_ = "Character";
-
+	this->floor_ = NULL;
+	
 	this->setNullInventory();
 }
 
@@ -80,6 +105,7 @@ Character::~Character()
 Character::Character(const std::string& name)
 {
 	this->name_ = name;
+	this->floor_ = NULL;
 
 	this->setNullInventory();
 }
@@ -96,6 +122,8 @@ Character& Character::operator=(const Character& source)
 {
 	this->name_ = source.name_;
 
+	std::cout << " copy-assign " << std::endl;
+	
 	this->deepCopyInventory(source);
 	this->floor_ = source.floor_;
 	return (*this);

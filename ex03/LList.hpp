@@ -5,7 +5,7 @@
 
 class LList
 {
-	private:
+	protected:
 		class Node
 		{
 			public:

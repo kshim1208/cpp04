@@ -20,7 +20,6 @@ Cat::Cat(const Cat& source) : Animal()
 {
 	std::cout << "Cat - " << this->type_ << " has been copy-created !!!" << std::endl;
 	this->type_ = source.type_;
-	delete this->brain_;
 	this->brain_ = new Brain(*source.brain_);
 }
 
@@ -28,7 +27,11 @@ Cat& Cat::operator=(const Cat& source)
 {
 	std::cout << "Cat - " << this->type_ << " has been copy-operator-created !!!" << std::endl;
 	this->type_ = source.type_;
-	delete this->brain_;
+	if (this->brain_ != NULL)
+	{
+		delete this->brain_;
+		this->brain_ = NULL;
+	}
 	this->brain_ = new Brain(*source.brain_);
 	return (*this);
 }

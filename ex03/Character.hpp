@@ -5,7 +5,7 @@
 
 # include "AMateria.hpp"
 
-# include "LList.hpp"
+# include "LListAMateria.hpp"
 
 # include <string>
 
@@ -18,7 +18,9 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
-		void setFloor(LList* floor);
+		void setFloor(LListAMateria* floor);
+
+		virtual Character* clone();
 
 		Character();
 		~Character();
@@ -29,8 +31,8 @@ class Character : public ICharacter
 	private:
 		std::string	name_;
 		AMateria* inventory_[INVENTORY_SIZE];
-		LList*	floor_;
-		void	setNullInventory(void); // 나중에 안쓰는 테스트 해보기
+		LListAMateria*	floor_;
+		void	setNullInventory(void);
 		void	deepCopyInventory(const Character& source);
 };
 

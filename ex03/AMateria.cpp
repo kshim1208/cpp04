@@ -6,6 +6,18 @@
 #include <iostream>
 #include <string>
 
+std::string const & AMateria::getType() const
+{
+	return (this->type_);
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "* BASIC MATERIA DOES NOTHING TO " << target.getName() << "!!! *" << std::endl;
+}
+
+
+
 AMateria::AMateria()
 {
 	this->type_ = "BASIC";
@@ -30,14 +42,4 @@ AMateria& AMateria::operator=(const AMateria& source)
 {
 	this->type_ = source.type_;
 	return (*this);
-}
-
-std::string const & AMateria::getType() const
-{
-	return (this->type_);
-}
-
-void AMateria::use(ICharacter& target)
-{
-	std::cout << "* BASIC MATERIA DOES NOTHING TO " << target.getName() << "!!! *" << std::endl;
 }

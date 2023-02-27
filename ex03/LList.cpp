@@ -1,6 +1,8 @@
 
 #include "LList.hpp"
 
+#include <iostream>
+
 LList::Node::Node()
 {
 	this->content = NULL;
@@ -9,7 +11,6 @@ LList::Node::Node()
 
 LList::Node::~Node()
 {
-	//// 뭔가 좋은 수단이 있을까? 애초에 이게 호출될 가능성이 있을까?
 }
 
 LList::Node::Node(const Node& source)
@@ -78,6 +79,7 @@ void	LList::listAddFront(void* content)
 	Node	*new_node = NULL;
 
 	new_node = this->newNode(content);
+	this->size++;
 	if (this->head == NULL)
 	{
 		this->head = new_node;
@@ -100,6 +102,7 @@ void	LList::listDelOne(Node* node)
 		node->content = NULL;
 		delete node;
 	}
+	this->size--;
 }
 
 void	LList::listClear()

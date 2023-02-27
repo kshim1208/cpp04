@@ -5,11 +5,6 @@
 
 #include <iostream>
 
-void	test_leaks()
-{
-	system("leaks I_dont_want_to_set_the_world_on_fire | grep leaks");
-}
-
 int main()
 {
 	const Animal* j = new Dog();
@@ -34,19 +29,19 @@ int main()
 
 	std::cout << "----show deep copy----" << std::endl;
 	Cat* alpha_cat = new Cat();
-	Cat* another_alpha_Cat;
+	Cat* another_alpha_Cat = new Cat();
 	Dog* alpha_dog = new Dog();
-
-	std::cout << "----try deep copy----" << std::endl;
-	another_alpha_Cat = new Cat(*alpha_cat);
-	alpha_cat->showIdea(0);
-	another_alpha_Cat->showIdea(0);
 	
+	std::cout << "----try deep copy----" << std::endl;
+	*another_alpha_Cat = *alpha_cat;
+	for (int i = 0; i < FT_BRAIN_IDEAS; i++)
+	{
+		alpha_cat->showIdea(i);
+		another_alpha_Cat->showIdea(i);
+	}
+
 	delete alpha_cat;
 	delete alpha_dog;
 	delete another_alpha_Cat;
-
-	test_leaks();
-
 	return 0;
 }

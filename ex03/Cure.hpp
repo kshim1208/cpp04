@@ -7,8 +7,7 @@ class Cure : public AMateria
 {
 	public:
 		void use(ICharacter& target);
-		AMateria*	clone() const;
-		// Cure*	clone() const;
+		Cure*	clone() const;
 	
 		Cure();
 		~Cure();

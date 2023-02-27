@@ -32,9 +32,9 @@ void Ice::use(ICharacter& target)
 	std::cout << "* shoots a ice bolt at " << target.getName() << " *" << std::endl;
 }
 
-AMateria*	Ice::clone() const
+Ice*	Ice::clone() const
 {
-	AMateria*	tmp = new Ice();
+	Ice*	tmp = new Ice();
 
 	return (tmp);
 }
