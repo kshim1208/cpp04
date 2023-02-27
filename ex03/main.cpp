@@ -80,12 +80,14 @@ int main()
 	buf = m_src->createMateria("cure");
 	him->equip(buf);
 
+	// these are examples about c++11 dynamic_cast - for explain
+
 	// ICharacter*	dopple = new Character("Dopple");
 	// *(dynamic_cast<Character*>(dopple)) = *(dynamic_cast<Character*>(ks));
 
 	// ICharacter*	dopple = new Character(*(dynamic_cast<Character *>(ks)));
 
-	ICharacter*	dopple = ks->clone();
+	ICharacter*	dopple = ks->copy();
 
 	ks->use(0, *him);
 	him->use(0, *ks);

@@ -78,7 +78,7 @@ void Character::setFloor(LListAMateria* floor)
 	this->floor_ = floor;
 }
 
-Character* Character::clone()
+Character* Character::copy()
 {
 	Character* tmp = new Character(*this);
 	return (tmp);

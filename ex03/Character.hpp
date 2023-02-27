@@ -20,7 +20,7 @@ class Character : public ICharacter
 		void use(int idx, ICharacter& target);
 		void setFloor(LListAMateria* floor);
 
-		virtual Character* clone();
+		virtual Character* copy();
 
 		Character();
 		~Character();

@@ -1,6 +1,6 @@
 NAME = Interface_and_recap
 CPPC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm
 RMFLAGS = -f
 

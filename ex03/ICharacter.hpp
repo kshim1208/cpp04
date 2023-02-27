@@ -18,7 +18,7 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 
 		virtual	void setFloor(LListAMateria* floor) = 0;
-		virtual ICharacter* clone() = 0;
+		virtual ICharacter* copy() = 0;
 };
 
 #endif
